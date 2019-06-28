@@ -12,9 +12,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    /////////////Show Msg Functions /////////////////////////////////////
+
+    public void show(int tempnum)
+    {
+        Toast.makeText(getBaseContext(),String.valueOf(tempnum),Toast.LENGTH_SHORT).show();
+    }
+
+    public void show(String tempstring)
+    {
+        Toast.makeText(getBaseContext(),tempstring,Toast.LENGTH_SHORT).show();
+    }
+
+//////////////////////////////////////////////////////////////////
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +39,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+/*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });   */
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,7 +83,18 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_new) {
+            show("We have to start with New Questionair");
+            return true;
+        }
+
+        if (id == R.id.action_load) {
+            show("File Loaded");
+            return true;
+        }
+
+        if (id == R.id.action_save) {
+            show("File Saved");
             return true;
         }
 
@@ -80,19 +107,29 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_header) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_internalInfo) {
 
-        } else if (id == R.id.nav_slideshow) {
+        }  else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_internal) { show("Internal Examiner's Remuneration Bill Created");
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_external) { show("External Examiner's Remuneration Bill Created");
+
+        } else if (id == R.id.nav_tada) {  show("TA, DA Form Created");
+
+        } else if (id == R.id.nav_relieve) { show("Relieveing Order Created");
+
+        } else if (id == R.id.nav_send) {
 
         } else if (id == R.id.nav_send) {
 
         }
+
+
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

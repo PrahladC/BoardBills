@@ -5,22 +5,35 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_header"
+            android:title="Header/College Details" />
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_internalInfo"
+            android:title="Internal Examiner's Details" />
+
     </group>
+
+    <item android:title="Create PDFs">
+        <menu>
+            <item
+                android:id="@+id/nav_internal"
+                android:title="Internal Examiner's Remuneration" />
+
+            <item
+                android:id="@+id/nav_external"
+                android:title="External Examiner's Remuneration" />
+
+            <item
+                android:id="@+id/nav_tada"
+                android:title="TA, DA Bill" />
+            <item
+                android:id="@+id/nav_relieve"
+                android:title="Relieving Order" />
+
+
+        </menu>
+    </item>
 
     <item android:title="Communicate">
         <menu>
@@ -34,5 +47,6 @@
                 android:title="Send" />
         </menu>
     </item>
+
 
 </menu>
