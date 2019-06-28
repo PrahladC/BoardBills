@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_home"
-    android:background="#6459ED"
+    android:background= "#909090"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="in.peecee.boardbills.MainActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -11,157 +11,165 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-            <ScrollView android:id="@+id/Scroll"
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/Scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fillViewport="true"
-                xmlns:android="http://schemas.android.com/apk/res/android">
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="0dp">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    tools:layout_editor_absoluteX="83dp"
-                    tools:layout_editor_absoluteY="0dp">
+                    android:textSize="18sp"
+                    android:text="Exam and External Examiner Details"
+                    android:gravity="center"
+                    android:textColor="#000000" />
 
-                    <EditText
-                        android:id="@+id/editText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="20dp"
-                        android:paddingLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message1"/>
-                    <EditText
-                        android:id="@+id/editText2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message2"/>
-                    <EditText
-                        android:id="@+id/editText3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message3"/>
-                    <EditText
-                        android:id="@+id/editText4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message4"/>
-                    <EditText
-                        android:id="@+id/editText5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message5"/>
-                    <EditText
-                        android:id="@+id/editText6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message6"/>
-                    <EditText
-                        android:id="@+id/editText7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message7"/>
-                    <EditText
-                        android:id="@+id/editText8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message8"/>
-                    <EditText
-                        android:id="@+id/editText9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message9"/>
-                    <EditText
-                        android:id="@+id/editText10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/round_corners"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="3dp"
-                        android:hint="Write a message10"/>
-                </LinearLayout>
-            </ScrollView>
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message1"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message2"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message3"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message4"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message5"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message6"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message7"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message8"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message9"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+
+                <EditText
+                    android:id="@+id/editText10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/round_corners"
+                    android:ems="10"
+                    android:hint="Write a message10"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp" />
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
-
-    <EditText
-        android:id="@+id/editText11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="540dp" />
 
 </android.support.constraint.ConstraintLayout>
