@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_header"
-            android:title="Header/College Details" />
-
-        <item
+            android:title="Internal Examiner and College Details" />
+`
+<!--        <item
             android:id="@+id/nav_internalInfo"
-            android:title="Internal Examiner's Details" />
+            android:title="Internal Examiner's Details" />  -->
 
     </group>
 

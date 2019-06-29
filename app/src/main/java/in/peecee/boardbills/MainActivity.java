@@ -1,8 +1,12 @@
 package in.peecee.boardbills;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +21,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    collegedetails CD = new collegedetails();
     /////////////Show Msg Functions /////////////////////////////////////
 
     public void show(int tempnum)
@@ -47,6 +53,10 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });   */
+
+
+        CD.LoadPreferrences(this);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -107,13 +117,11 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_header) {
+/*        if (id == R.id.nav_header) {
             // Handle the camera action
-        } else if (id == R.id.nav_internalInfo) {
+        } else if (id == R.id.nav_header) { EditSettings();
 
-        }  else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_internal) { show("Internal Examiner's Remuneration Bill Created");
+        }  else if (id == R.id.nav_internal) { show("Internal Examiner's Remuneration Bill Created");
 
         } else if (id == R.id.nav_external) { show("External Examiner's Remuneration Bill Created");
 
@@ -121,18 +129,64 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_relieve) { show("Relieveing Order Created");
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
+        }  */
+
+        switch(id)
+        {
+            case R.id.nav_header:  EditSettings();  break;
+            case R.id.nav_internal :  break;  // PDF
+            case R.id.nav_external :  break;  // PDF
+            case R.id.nav_tada :      break;  // PDF
+            case R.id.nav_relieve :   break;  // PDF
         }
 
-
-
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    /////////////////// Storage Permission //////////////////////////////////////
+
+    public  boolean StoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                //Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                //Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            //  Log.v(TAG,"Permission is granted");
+            return true;
+        }
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(grantResults[0]== PackageManager.PERMISSION_GRANTED)
+        {
+            //    Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
+            //resume tasks needing this permission
+        }
+    }
+
+
+    void EditSettings()
+    {
+        CD.SetIntlCollegeDetails(this);
+
+    }
+
+
 }
