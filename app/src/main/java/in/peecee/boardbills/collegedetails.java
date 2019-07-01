@@ -12,12 +12,11 @@ import android.widget.EditText;
 public class collegedetails {
 
     boolean modified=false,NewNow=false,selectall=false,end=false,OpenNow=false;
-//    String Zone="Mumbai Divisional Board, Vashi,Navi Mumbai - 400703";
-    String  BatchNo="01",Date="",BatchTime="",School="SIWS College",
+
+    String  College="SIWS College",
             Index="J-31.04.005",MonthYear="Feb-2020",
-            Strim="Science", Standard="HSC",Subject="Mathematics",SubjectCode="40",
-            Medium="English",Type="Practical",  Email1="",Email2="",
-            BatchCreator="MO",BatchSession="";
+            Strim="Science", Subject="Mathematics",SubjectCode="40",
+            Type="Practical",  Email1="",Email2="";
 
     String tempstr;
 
@@ -31,46 +30,29 @@ public class collegedetails {
         myDialog.getWindow().getAttributes().width = ViewGroup.LayoutParams.FILL_PARENT;
 
 
+        final EditText FSchool = (EditText) myDialog.findViewById(R.id.COLLEGE);
+        FSchool.setText(College);
 
-//        final EditText FZone = (EditText) myDialog.findViewById(R.id.EB_ZONE);
-//        FZone.setText(Zone);
-
-        final EditText FMonthyear = (EditText) myDialog.findViewById(R.id.EB_MONTHYEAR);
-        FMonthyear.setText(MonthYear);
-
-        final EditText FSchool = (EditText) myDialog.findViewById(R.id.EB_SCHOOL);
-        FSchool.setText(School);
-
-
-        final EditText FIndex = (EditText) myDialog.findViewById(R.id.EB_INDEX);
+        final EditText FIndex = (EditText) myDialog.findViewById(R.id.INDEX);
         FIndex.setText(Index);
 
-        final EditText FStrim = (EditText) myDialog.findViewById(R.id.EB_STRIM);
+        final EditText FMonthyear = (EditText) myDialog.findViewById(R.id.MONTHYEAR);
+        FMonthyear.setText(MonthYear);
+
+        final EditText FStrim = (EditText) myDialog.findViewById(R.id.STRIM);
         FStrim.setText(Strim);
 
-        final EditText FStandard = (EditText) myDialog.findViewById(R.id.EB_STANDARD);
-        FStandard.setText(Standard);
-
-        final EditText FSubject = (EditText) myDialog.findViewById(R.id.EB_SUBJECT);
+        final EditText FSubject = (EditText) myDialog.findViewById(R.id.SUBJECT);
         FSubject.setText(Subject);
 
-        final EditText FSubcode = (EditText) myDialog.findViewById(R.id.EB_SUBCODE);
+        final EditText FSubcode = (EditText) myDialog.findViewById(R.id.SUBCODE);
         FSubcode.setText(SubjectCode);
 
-        final EditText FMedium = (EditText) myDialog.findViewById(R.id.EB_MEDIUM);
-        FMedium.setText(Medium);
-
-        final EditText FType = (EditText) myDialog.findViewById(R.id.EB_TYPE);
-        FType.setText(Type);
-
-        final EditText FEmail1 = (EditText) myDialog.findViewById(R.id.EB_EMAIL1);
+        final EditText FEmail1 = (EditText) myDialog.findViewById(R.id.EMAIL1);
         FEmail1.setText(Email1);
 
-        final EditText FEmail2 = (EditText) myDialog.findViewById(R.id.EB_EMAIL2);
+        final EditText FEmail2 = (EditText) myDialog.findViewById(R.id.EMAIL2);
         FEmail2.setText(Email2);
-
-        final EditText FBatchcreator = (EditText) myDialog.findViewById(R.id.EB_BATCHCREATOR);
-        FBatchcreator.setText(BatchCreator);
 
         Button buttoncancel = (Button) myDialog.findViewById(R.id.BtnCancel);
         buttoncancel.setOnClickListener(new View.OnClickListener() {
@@ -87,35 +69,26 @@ public class collegedetails {
             public void onClick(View v)
             {
 
-//                tempstr=FZone.getText().toString(); Zone=tempstr;
                 tempstr=FMonthyear.getText().toString(); MonthYear=tempstr;
-                tempstr=FSchool.getText().toString(); School=tempstr;
+                tempstr=FSchool.getText().toString(); College=tempstr;
                 tempstr=FIndex.getText().toString();  Index=tempstr;
                 tempstr=FStrim.getText().toString();  Strim=tempstr;
-                tempstr=FStandard.getText().toString();  Standard=tempstr;
                 tempstr=FSubject.getText().toString();  Subject=tempstr;
                 tempstr=FSubcode.getText().toString(); SubjectCode=tempstr;
-                tempstr=FMedium.getText().toString(); Medium=tempstr;
-                tempstr=FType.getText().toString();  Type=tempstr;
                 tempstr=FEmail1.getText().toString();  Email1=tempstr;
                 tempstr=FEmail2.getText().toString();  Email2=tempstr;
-                tempstr=FBatchcreator.getText().toString(); BatchCreator=tempstr;
 
-                SharedPreferences settings = context.getSharedPreferences("BATCHMAKER-PREF", 0);
+                SharedPreferences settings = context.getSharedPreferences("COLLEGE DETAILS", 0);
                 SharedPreferences.Editor editor = settings.edit();
-//                editor.putString("Zone",Zone);
                 editor.putString("MonthYear",MonthYear);
-                editor.putString("School",School);
+                editor.putString("College",College);
                 editor.putString("Index", Index);
                 editor.putString("Strim", Strim);
-                editor.putString("Standard", Standard);
                 editor.putString("Subject", Subject);
                 editor.putString("SubjectCode", SubjectCode);
-                editor.putString("Medium",Medium);
                 editor.putString("Type", Type);
                 editor.putString("Email1", Email1);
                 editor.putString("Email2", Email2);
-                editor.putString("BatchCreator", BatchCreator);
                 editor.commit();
 
 
@@ -138,21 +111,21 @@ public class collegedetails {
     void LoadPreferrences(final Context context)
     {
         ////load preferences
-        SharedPreferences settings = context.getSharedPreferences("BATCHMAKER-PREF", 0);
+        SharedPreferences settings = context.getSharedPreferences("COLLEGEDETAILS", 0);
 
 //        Zone=settings.getString("Zone",Zone);
         MonthYear=settings.getString("MonthYear",MonthYear);
-        School=settings.getString("School",School);
+        College=settings.getString("School",College);
         Index=settings.getString("Index", Index);
         Strim=settings.getString("Strim", Strim);
-        Standard=settings.getString("Standard", Standard);
+//        Standard=settings.getString("Standard", Standard);
         Subject=settings.getString("Subject", Subject);
         SubjectCode=settings.getString("SubjectCode", SubjectCode);
-        Medium=settings.getString("Medium", Medium);
-        Type=settings.getString("Type", Type);
+//        Medium=settings.getString("Medium", Medium);
+//        Type=settings.getString("Type", Type);
         Email1=settings.getString("Email1", Email1);
         Email2=settings.getString("Email2", Email2);
-        BatchCreator=settings.getString("BatchCreator", BatchCreator);
+//        BatchCreator=settings.getString("BatchCreator", BatchCreator);
     }
 
 

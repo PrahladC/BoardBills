@@ -17,6 +17,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/Scroll"
             android:layout_width="match_parent"
@@ -25,7 +30,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 tools:layout_editor_absoluteX="83dp"
                 tools:layout_editor_absoluteY="0dp">
@@ -36,140 +41,169 @@
                     android:textSize="18sp"
                     android:text="Exam and External Examiner Details"
                     android:gravity="center"
-                    android:textColor="#000000" />
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/NemExaminer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message1"
+                    android:textSize="16sp"
+                    android:hint="Name of Examiner"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/ExaminerColNem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message2"
+                    android:textSize="16sp"
+                    android:hint="Examiner's College Name"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/ExaminerColIndex"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message3"
+                    android:textSize="16sp"
+                    android:hint="Index number of College"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText4"
+                    android:id="@+id/PostalAddressLine1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message4"
+                    android:textSize="16sp"
+                    android:hint="Postal address Line1"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText5"
+                    android:id="@+id/PostalAddressLine2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message5"
+                    android:textSize="16sp"
+                    android:hint="Postal address Line2"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText6"
+                    android:id="@+id/ExamStartDet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message6"
+                    android:textSize="16sp"
+                    android:hint="Exam - Start date ( DD/MM/YY FORMAT )"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText7"
+                    android:id="@+id/ExamEndDet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message7"
+                    android:textSize="16sp"
+                    android:hint="Exam - End date ( DD/MM/YY FORMAT )"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText8"
+                    android:id="@+id/NoExamDet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message8"
+                    android:textSize="16sp"
+                    android:hint="Exam not conducted on ( DD/MM/YY FORMAT )"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText9"
+                    android:id="@+id/NumOfStudents"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message9"
+                    android:textSize="16sp"
+                    android:hint="Number of students examined"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
 
                 <EditText
-                    android:id="@+id/editText10"
+                    android:id="@+id/RemPerStudent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:background="@drawable/round_corners"
                     android:ems="10"
-                    android:hint="Write a message10"
+                    android:textSize="16sp"
+                    android:hint="Rumeneration per student"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toStartOf="@+id/button"
+                    android:layout_gravity="fill_vertical"
+                    android:background="@drawable/round_corners"
+                    android:backgroundTint="@color/mycolor1"
+                    android:textAlignment="gravity"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Exit" />
+
             </LinearLayout>
         </ScrollView>
+        </LinearLayout>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

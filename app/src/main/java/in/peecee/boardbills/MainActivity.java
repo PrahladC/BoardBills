@@ -1,6 +1,8 @@
 package in.peecee.boardbills;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,7 +18,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -54,6 +62,30 @@ public class MainActivity extends AppCompatActivity
             }
         });   */
 
+        Button Exit = (Button) findViewById(R.id.button);
+        Exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new AlertDialog.Builder(MainActivity.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Closing Application !")
+                        .setMessage("The file you have opened is altered. Would you like to " +
+                                "close this with out saving ?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+            }
+        });
+
+
 
         CD.LoadPreferrences(this);
 
@@ -66,7 +98,41 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
+
+
+
+    private void SaveToFile(){
+        String FileNameWithPath="/sdcard/";
+        FileNameWithPath+="test.rmb";
+        SaveList(FileNameWithPath);
+        show("TEST");
+        if(!StoragePermissionGranted()) ;
+        if(!StoragePermissionGranted()) finish();
+
+    }
+    private void SaveList(String fwithpath) {
+        String tmpStr;
+//        String txtData = "Hello World Super World !!!";
+        EditText name = (EditText) findViewById(R.id.NemExaminer);
+
+        try {
+            File myFile = new File(fwithpath);
+            myFile.createNewFile();
+            FileOutputStream fOut = new FileOutputStream(myFile);
+            OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
+//            myOutWriter.append(txtData);
+            myOutWriter.append(name.getText());
+            myOutWriter.close();
+            fOut.close();
+        } catch (Exception e) {
+            Toast.makeText(getBaseContext(), e.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
     @Override
     public void onBackPressed() {
@@ -92,6 +158,13 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        switch(id)
+        {
+            case R.id.action_new  : show("We have to start with New Questionair"); break;
+            case R.id.action_load : show("File Loaded"); ; break;
+            case R.id.action_save : show("File Saved");  break;
+        }
+/*
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_new) {
             show("We have to start with New Questionair");
@@ -104,9 +177,11 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.action_save) {
+
             show("File Saved");
             return true;
         }
+*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -138,10 +213,10 @@ public class MainActivity extends AppCompatActivity
         switch(id)
         {
             case R.id.nav_header:  EditSettings();  break;
-            case R.id.nav_internal :  break;  // PDF
-            case R.id.nav_external :  break;  // PDF
-            case R.id.nav_tada :      break;  // PDF
-            case R.id.nav_relieve :   break;  // PDF
+            case R.id.nav_internal : show("Internal Examiner's Remuneration Bill Created"); break;  // PDF
+            case R.id.nav_external : show("External Examiner's Remuneration Bill Created");  break;  // PDF
+            case R.id.nav_tada :     show("TA, DA Form Created");    break;  // PDF
+            case R.id.nav_relieve :  show("Relieveing Order Created");  break;  // PDF
         }
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

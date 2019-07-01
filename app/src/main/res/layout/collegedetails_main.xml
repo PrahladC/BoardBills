@@ -13,7 +13,8 @@
         android:background="#909090"
         android:padding="10dp" >
 
-<!--        <TableRow
+
+        <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp" >
@@ -21,10 +22,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Board Zone :"
+                android:text="Name of the College (Center of Exam) :"
                 android:textColor="#000000" />
 
-        </TableRow>            -->
+        </TableRow>
 
 
         <TableRow
@@ -32,12 +33,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp" >
 
-
             <EditText
-                android:id="@+id/EB_ZONE"
-                android:inputType="textVisiblePassword"
+                android:id="@+id/COLLEGE"
                 android:singleLine="true"
-                android:nextFocusDown="@+id/EB_MONTHYEAR"
+                android:nextFocusDown="@+id/INDEX"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -55,7 +54,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Month - Year :"
+                android:text="College Index Number"
                 android:textColor="#000000" />
 
         </TableRow>
@@ -68,85 +67,10 @@
 
 
             <EditText
-                android:id="@+id/EB_MONTHYEAR"
-                android:inputType="textVisiblePassword"
-                android:singleLine="true"
-                android:nextFocusDown="@+id/EB_SCHOOL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textColorHint="#aeaeae"/>
-
-        </TableRow>
-
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="School/College :"
-                android:textColor="#000000" />
-
-        </TableRow>
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-
-            <EditText
-                android:id="@+id/EB_SCHOOL"
-                android:inputType="textVisiblePassword"
-                android:singleLine="true"
-                android:nextFocusDown="@+id/EB_INDEX"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textColorHint="#aeaeae"/>
-
-
-
-
-        </TableRow>
-
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Code (Index No)"
-                android:textColor="#000000" />
-
-        </TableRow>
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-
-            <EditText
-                android:id="@+id/EB_INDEX"
+                android:id="@+id/INDEX"
                 android:inputType="textVisiblePassword|textCapWords"
                 android:singleLine="true"
-                android:nextFocusDown="@+id/EB_STRIM"
+                android:nextFocusDown="@+id/MONTHYEAR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -156,7 +80,6 @@
 
         </TableRow>
 
-
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -165,47 +88,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stream (Science,Commerce, etc) :"
-                android:textColor="#000000"
-
-                />
-
-        </TableRow>
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-
-            <EditText
-                android:id="@+id/EB_STRIM"
-                android:capitalize="characters"
-                android:inputType="textVisiblePassword"
-                android:singleLine="true"
-                android:nextFocusDown="@+id/EB_STANDARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textColorHint="#aeaeae"/>
-
-
-        </TableRow>
-
-
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Standard :"
+                android:text="Month and Year :"
                 android:textColor="#000000" />
 
         </TableRow>
@@ -218,11 +101,48 @@
 
 
             <EditText
-                android:id="@+id/EB_STANDARD"
+                android:id="@+id/MONTHYEAR"
+                android:inputType="textVisiblePassword"
+                android:singleLine="true"
+                android:nextFocusDown="@+id/STRIM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textColorHint="#aeaeae"/>
+
+        </TableRow>
+
+
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stream (Science,Commerce, Arts) :"
+                android:textColor="#000000"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp" >
+
+
+            <EditText
+                android:id="@+id/STRIM"
                 android:capitalize="characters"
                 android:inputType="textVisiblePassword"
                 android:singleLine="true"
-                android:nextFocusDown="@+id/EB_SUBJECT"
+                android:nextFocusDown="@+id/SUBJECT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -232,7 +152,6 @@
 
 
         </TableRow>
-
 
         <TableRow
             android:layout_width="fill_parent"
@@ -248,7 +167,6 @@
 
         </TableRow>
 
-
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -257,11 +175,11 @@
 
 
             <EditText
-                android:id="@+id/EB_SUBJECT"
+                android:id="@+id/SUBJECT"
                 android:capitalize="characters"
                 android:inputType="textVisiblePassword"
                 android:singleLine="true"
-                android:nextFocusDown="@+id/EB_SUBCODE"
+                android:nextFocusDown="@+id/SUBCODE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -294,11 +212,11 @@
             android:layout_marginBottom="10dp" >
 
             <EditText
-                android:id="@+id/EB_SUBCODE"
+                android:id="@+id/SUBCODE"
                 android:capitalize="characters"
                 android:inputType="textVisiblePassword"
                 android:singleLine="true"
-                android:nextFocusDown="@+id/EB_MEDIUM"
+                android:nextFocusDown="@+id/EMAIL1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -307,82 +225,6 @@
                 android:textColorHint="#aeaeae"/>
 
         </TableRow>
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mediam :"
-                android:textColor="#000000" />
-
-
-        </TableRow>
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-            <EditText
-                android:id="@+id/EB_MEDIUM"
-                android:capitalize="characters"
-                android:inputType="textVisiblePassword"
-                android:singleLine="true"
-                android:nextFocusDown="@+id/EB_TYPE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textColorHint="#aeaeae"/>
-
-        </TableRow>
-
-
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Exam Type (Oral, Pract, Project etc):"
-                android:textColor="#000000" />
-
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-
-            <EditText
-                android:id="@+id/EB_TYPE"
-                android:capitalize="characters"
-                android:inputType="textVisiblePassword"
-                android:singleLine="true"
-                android:nextFocusDown="@+id/EB_EMAIL1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textColorHint="#aeaeae"/>
-
-
-        </TableRow>
-
-
 
         <TableRow
             android:layout_width="fill_parent"
@@ -405,11 +247,11 @@
 
 
             <EditText
-                android:id="@+id/EB_EMAIL1"
+                android:id="@+id/EMAIL1"
                 android:capitalize="characters"
                 android:inputType="textVisiblePassword"
                 android:singleLine="true"
-                android:nextFocusDown="@+id/EB_EMAIL2"
+                android:nextFocusDown="@+id/EMAIL2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -442,43 +284,7 @@
 
 
             <EditText
-                android:id="@+id/EB_EMAIL2"
-                android:inputType="textVisiblePassword"
-                android:singleLine="true"
-                android:nextFocusDown="@+id/EB_BATCHCREATOR"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textColorHint="#aeaeae"/>
-
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Batch Creator :"
-                android:textColor="#000000" />
-
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" >
-
-
-            <EditText
-                android:id="@+id/EB_BATCHCREATOR"
-                android:capitalize="characters"
+                android:id="@+id/EMAIL2"
                 android:inputType="textVisiblePassword"
                 android:singleLine="true"
                 android:nextFocusDown="@+id/BUpdate"
@@ -487,9 +293,9 @@
                 android:layout_weight="1"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textColorHint="#aeaeae"
+                android:textColorHint="#aeaeae"/>
 
-                />
+
         </TableRow>
 
         <LinearLayout
