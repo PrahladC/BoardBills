@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -30,10 +31,11 @@ import java.io.OutputStreamWriter;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String FileNameWithPath = "/sdcard/";
+    String FileNameWithPath;
     SaveDetails SD = new SaveDetails();
     collegedetails CD = new collegedetails();
     ExtExaminerDetails EED = new ExtExaminerDetails();
+    FileInputOutput FIO=new FileInputOutput();
     /////////////Show Msg Functions /////////////////////////////////////
 
     public void show(int tempnum)
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        FIO.SetMA(this);
 
 /*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -134,8 +137,10 @@ public class MainActivity extends AppCompatActivity
         switch(id)
         {
             case R.id.action_new  : show("We shall start with New Questionair"); return true;
-            case R.id.action_load : show("File Loaded"); ; return true;
-            case R.id.action_save : show("File Saved"); SD.SaveToFile(); return true;
+            case R.id.action_load :  FIO.askPermissionAndReadFile(); //show("File Loaded");
+                                      return true;
+            case R.id.action_save : FIO.askPermissionAndWriteFile(); ////show("File Saved"); SD.SaveToFile();
+                                     return true;
         }
 
 /*        //noinspection SimplifiableIfStatement
@@ -198,17 +203,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void SaveToFile(){
-        String FileNameWithPath="/sdcard/";
-        FileNameWithPath+="BoardBills.rmb";
+        String rootDir = Environment.getExternalStorageDirectory().getPath();
+        //String FileNameWithPath="/sdcard/";
+        FileNameWithPath=rootDir+"/"+"BoardBills.rmb";
         SaveList(FileNameWithPath);
         show("TEST");
         if(!StoragePermissionGranted()) ;
-        if(!StoragePermissionGranted()) finish();
+       // if(!StoragePermissionGranted()) finish();
 
     }
     private void SaveList(String fwithpath) {
         String tmpStr;
-//        String txtData = "Hello World Super World !!!";
+        String txtData = "Hello World Super World !!!";
         EditText name = (EditText) findViewById(R.id.NemExaminer);
 
         try {
@@ -216,8 +222,8 @@ public class MainActivity extends AppCompatActivity
             myFile.createNewFile();
             FileOutputStream fOut = new FileOutputStream(myFile);
             OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
-//            myOutWriter.append(txtData);
-            myOutWriter.append(name.getText());
+            myOutWriter.append(txtData);
+         //   myOutWriter.append(name.getText());
             myOutWriter.close();
             fOut.close();
         } catch (Exception e) {
@@ -225,6 +231,7 @@ public class MainActivity extends AppCompatActivity
                     Toast.LENGTH_SHORT).show();
         }
     }
+
 
 
     /////////////////// Storage Permission //////////////////////////////////////
