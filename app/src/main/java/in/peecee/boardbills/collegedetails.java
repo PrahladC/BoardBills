@@ -11,10 +11,11 @@ import android.widget.EditText;
 
 public class collegedetails {
 
-    boolean modified=false,NewNow=false,selectall=false,end=false,OpenNow=false;
+//    boolean modified=false,NewNow=false,selectall=false,end=false,OpenNow=false;
 
     String  College="SIWS College",
-            Index="J-31.04.005",MonthYear="Feb-2020",
+            Index="J-31.04.005",MonthYear="Feb-2020", Internal = "Internal Examiner",
+            AddLine1 = "Address Line 1", AddLine2 = "Address Line 2",
             Strim="Science", Subject="Mathematics",SubjectCode="40",
             Type="Practical",  Email1="",Email2="";
 
@@ -24,14 +25,13 @@ public class collegedetails {
     {
         final Dialog myDialog;
         myDialog =  new Dialog(context);
-        myDialog.setTitle("Save Batch Preferences");
         myDialog.setContentView(R.layout.collegedetails_main);
         myDialog.setCancelable(true);
-        myDialog.getWindow().getAttributes().width = ViewGroup.LayoutParams.FILL_PARENT;
+//        myDialog.getWindow().getAttributes().width = ViewGroup.LayoutParams.FILL_PARENT;
 
 
-        final EditText FSchool = (EditText) myDialog.findViewById(R.id.COLLEGE);
-        FSchool.setText(College);
+        final EditText FCollege = (EditText) myDialog.findViewById(R.id.COLLEGE);
+        FCollege.setText(College);
 
         final EditText FIndex = (EditText) myDialog.findViewById(R.id.INDEX);
         FIndex.setText(Index);
@@ -45,8 +45,14 @@ public class collegedetails {
         final EditText FSubject = (EditText) myDialog.findViewById(R.id.SUBJECT);
         FSubject.setText(Subject);
 
-        final EditText FSubcode = (EditText) myDialog.findViewById(R.id.SUBCODE);
-        FSubcode.setText(SubjectCode);
+        final EditText FInternal = (EditText) myDialog.findViewById(R.id.INTERNAL);
+        FInternal.setText(Internal);
+
+        final EditText FAddLine1 = (EditText) myDialog.findViewById(R.id.ADDRESSLINE1);
+        FAddLine1.setText(AddLine1);
+
+        final EditText FAddLine2 = (EditText) myDialog.findViewById(R.id.ADDRESSLINE2);
+        FAddLine2.setText(AddLine2);
 
         final EditText FEmail1 = (EditText) myDialog.findViewById(R.id.EMAIL1);
         FEmail1.setText(Email1);
@@ -69,31 +75,35 @@ public class collegedetails {
             public void onClick(View v)
             {
 
-                tempstr=FMonthyear.getText().toString(); MonthYear=tempstr;
-                tempstr=FSchool.getText().toString(); College=tempstr;
+                tempstr=FCollege.getText().toString(); College=tempstr;
                 tempstr=FIndex.getText().toString();  Index=tempstr;
+                tempstr=FMonthyear.getText().toString(); MonthYear=tempstr;
                 tempstr=FStrim.getText().toString();  Strim=tempstr;
                 tempstr=FSubject.getText().toString();  Subject=tempstr;
-                tempstr=FSubcode.getText().toString(); SubjectCode=tempstr;
+                tempstr=FInternal.getText().toString(); Internal=tempstr;
+                tempstr=FAddLine1.getText().toString(); AddLine1=tempstr;
+                tempstr=FAddLine2.getText().toString(); AddLine2=tempstr;
                 tempstr=FEmail1.getText().toString();  Email1=tempstr;
                 tempstr=FEmail2.getText().toString();  Email2=tempstr;
 
                 SharedPreferences settings = context.getSharedPreferences("COLLEGE DETAILS", 0);
                 SharedPreferences.Editor editor = settings.edit();
-                editor.putString("MonthYear",MonthYear);
+
                 editor.putString("College",College);
                 editor.putString("Index", Index);
+                editor.putString("MonthYear",MonthYear);
                 editor.putString("Strim", Strim);
                 editor.putString("Subject", Subject);
-                editor.putString("SubjectCode", SubjectCode);
-                editor.putString("Type", Type);
+                editor.putString("Internal Examiner", Internal);
+                editor.putString("Address Line1", AddLine1);
+                editor.putString("Address Line2", AddLine2);
                 editor.putString("Email1", Email1);
                 editor.putString("Email2", Email2);
                 editor.commit();
 
 
                 InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(FSchool.getWindowToken(),0);
+                imm.hideSoftInputFromWindow(FCollege.getWindowToken(),0);
 
                 myDialog.dismiss();
 
@@ -108,24 +118,24 @@ public class collegedetails {
     }
 
 
-    void LoadPreferrences(final Context context)
+    void LoadCollegeDetails(final Context context)
     {
         ////load preferences
         SharedPreferences settings = context.getSharedPreferences("COLLEGEDETAILS", 0);
 
-//        Zone=settings.getString("Zone",Zone);
-        MonthYear=settings.getString("MonthYear",MonthYear);
-        College=settings.getString("School",College);
+        College=settings.getString("College",College);
         Index=settings.getString("Index", Index);
+        MonthYear=settings.getString("MonthYear",MonthYear);
         Strim=settings.getString("Strim", Strim);
-//        Standard=settings.getString("Standard", Standard);
         Subject=settings.getString("Subject", Subject);
-        SubjectCode=settings.getString("SubjectCode", SubjectCode);
-//        Medium=settings.getString("Medium", Medium);
-//        Type=settings.getString("Type", Type);
+        Internal=settings.getString("Internal Examiner", Internal);
+        AddLine1=settings.getString("Address LIne 1", AddLine1);
+        AddLine2=settings.getString("Address LIne 2", AddLine2);
         Email1=settings.getString("Email1", Email1);
         Email2=settings.getString("Email2", Email2);
-//        BatchCreator=settings.getString("BatchCreator", BatchCreator);
+
+
+
     }
 
 

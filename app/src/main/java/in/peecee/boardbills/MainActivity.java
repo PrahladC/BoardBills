@@ -2,6 +2,7 @@ package in.peecee.boardbills;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -29,8 +30,10 @@ import java.io.OutputStreamWriter;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    String FileNameWithPath = "/sdcard/";
+    SaveDetails SD = new SaveDetails();
     collegedetails CD = new collegedetails();
+    ExtExaminerDetails EED = new ExtExaminerDetails();
     /////////////Show Msg Functions /////////////////////////////////////
 
     public void show(int tempnum)
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity
 
 //////////////////////////////////////////////////////////////////
 
-
+    boolean modified=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        CD.LoadPreferrences(this);
+        CD.LoadCollegeDetails(this);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -99,40 +102,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-    }
-
-
-
-    private void SaveToFile(){
-        String FileNameWithPath="/sdcard/";
-        FileNameWithPath+="test.rmb";
-        SaveList(FileNameWithPath);
-        show("TEST");
         if(!StoragePermissionGranted()) ;
         if(!StoragePermissionGranted()) finish();
 
     }
-    private void SaveList(String fwithpath) {
-        String tmpStr;
-//        String txtData = "Hello World Super World !!!";
-        EditText name = (EditText) findViewById(R.id.NemExaminer);
-
-        try {
-            File myFile = new File(fwithpath);
-            myFile.createNewFile();
-            FileOutputStream fOut = new FileOutputStream(myFile);
-            OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
-//            myOutWriter.append(txtData);
-            myOutWriter.append(name.getText());
-            myOutWriter.close();
-            fOut.close();
-        } catch (Exception e) {
-            Toast.makeText(getBaseContext(), e.getMessage(),
-                    Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
 
     @Override
     public void onBackPressed() {
@@ -160,12 +133,12 @@ public class MainActivity extends AppCompatActivity
 
         switch(id)
         {
-            case R.id.action_new  : show("We have to start with New Questionair"); break;
-            case R.id.action_load : show("File Loaded"); ; break;
-            case R.id.action_save : show("File Saved");  break;
+            case R.id.action_new  : show("We shall start with New Questionair"); return true;
+            case R.id.action_load : show("File Loaded"); ; return true;
+            case R.id.action_save : show("File Saved"); SD.SaveToFile(); return true;
         }
-/*
-        //noinspection SimplifiableIfStatement
+
+/*        //noinspection SimplifiableIfStatement
         if (id == R.id.action_new) {
             show("We have to start with New Questionair");
             return true;
@@ -177,11 +150,11 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.action_save) {
-
+            SD.SaveToFile();
             show("File Saved");
             return true;
         }
-*/
+  */
 
         return super.onOptionsItemSelected(item);
     }
@@ -223,6 +196,36 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void SaveToFile(){
+        String FileNameWithPath="/sdcard/";
+        FileNameWithPath+="BoardBills.rmb";
+        SaveList(FileNameWithPath);
+        show("TEST");
+        if(!StoragePermissionGranted()) ;
+        if(!StoragePermissionGranted()) finish();
+
+    }
+    private void SaveList(String fwithpath) {
+        String tmpStr;
+//        String txtData = "Hello World Super World !!!";
+        EditText name = (EditText) findViewById(R.id.NemExaminer);
+
+        try {
+            File myFile = new File(fwithpath);
+            myFile.createNewFile();
+            FileOutputStream fOut = new FileOutputStream(myFile);
+            OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
+//            myOutWriter.append(txtData);
+            myOutWriter.append(name.getText());
+            myOutWriter.close();
+            fOut.close();
+        } catch (Exception e) {
+            Toast.makeText(getBaseContext(), e.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     /////////////////// Storage Permission //////////////////////////////////////
 
