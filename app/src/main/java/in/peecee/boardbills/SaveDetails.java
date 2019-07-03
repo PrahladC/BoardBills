@@ -27,7 +27,7 @@ public class SaveDetails {
             Strim = "Science", Subject = "Mathematics", SubjectCode = "40",
             Email1 = "", Email2 = "";
 
-    String FileNameWithPath ;
+    String FileNameWithPath, filename ;
 
     String tempstr;
 
@@ -38,8 +38,7 @@ public class SaveDetails {
     public  void SaveToFile() {
 
         FileNameWithPath= Environment.getExternalStorageDirectory().getPath();
-//              String FileNameWithPath = "/sdcard/";
-        FileNameWithPath += "/"+"Bills.rmb";
+        FileNameWithPath += "/"+ filename;
 
 //        String FileNameWithPath = "/sdcard/";
 //        FileNameWithPath += "Bills.rmb";
@@ -47,6 +46,10 @@ public class SaveDetails {
     }
 
     public void SaveList() {
+
+        FileNameWithPath= Environment.getExternalStorageDirectory().getPath();
+        FileNameWithPath += "/"+ filename;
+
         int i;
         String tmpStr;
         String txtData = "\n";

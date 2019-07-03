@@ -13,11 +13,11 @@ public class collegedetails {
 
 //    boolean modified=false,NewNow=false,selectall=false,end=false,OpenNow=false;
 
-    String  College="SIWS College",
+    String  College="S. I. W. S. College",
             Index="J-31.04.005",MonthYear="Feb-2020", Internal = "Internal Examiner",
             AddLine1 = "Address Line 1", AddLine2 = "Address Line 2",
             Strim="Science", Subject="Mathematics",SubjectCode="40",
-            Type="Practical",  Email1="",Email2="";
+            Email1="pc@gmail,com",Email2="mo@gmail.com";
 
     String tempstr;
 
@@ -30,35 +30,35 @@ public class collegedetails {
 //        myDialog.getWindow().getAttributes().width = ViewGroup.LayoutParams.FILL_PARENT;
 
 
-        final EditText FCollege = (EditText) myDialog.findViewById(R.id.COLLEGE);
-        FCollege.setText(College);
+        final EditText PCollege = (EditText) myDialog.findViewById(R.id.COLLEGE);
+        PCollege.setText(College);
 
-        final EditText FIndex = (EditText) myDialog.findViewById(R.id.INDEX);
-        FIndex.setText(Index);
+        final EditText PIndex = (EditText) myDialog.findViewById(R.id.INDEX);
+        PIndex.setText(Index);
 
-        final EditText FMonthyear = (EditText) myDialog.findViewById(R.id.MONTHYEAR);
-        FMonthyear.setText(MonthYear);
+        final EditText PMonthyear = (EditText) myDialog.findViewById(R.id.MONTHYEAR);
+        PMonthyear.setText(MonthYear);
 
-        final EditText FStrim = (EditText) myDialog.findViewById(R.id.STRIM);
-        FStrim.setText(Strim);
+        final EditText PStrim = (EditText) myDialog.findViewById(R.id.STRIM);
+        PStrim.setText(Strim);
 
-        final EditText FSubject = (EditText) myDialog.findViewById(R.id.SUBJECT);
-        FSubject.setText(Subject);
+        final EditText PSubject = (EditText) myDialog.findViewById(R.id.SUBJECT);
+        PSubject.setText(Subject);
 
-        final EditText FInternal = (EditText) myDialog.findViewById(R.id.INTERNAL);
-        FInternal.setText(Internal);
+        final EditText PInternal = (EditText) myDialog.findViewById(R.id.INTERNAL);
+        PInternal.setText(Internal);
 
-        final EditText FAddLine1 = (EditText) myDialog.findViewById(R.id.ADDRESSLINE1);
-        FAddLine1.setText(AddLine1);
+        final EditText PAddLine1 = (EditText) myDialog.findViewById(R.id.ADDRESSLINE1);
+        PAddLine1.setText(AddLine1);
 
-        final EditText FAddLine2 = (EditText) myDialog.findViewById(R.id.ADDRESSLINE2);
-        FAddLine2.setText(AddLine2);
+        final EditText PAddLine2 = (EditText) myDialog.findViewById(R.id.ADDRESSLINE2);
+        PAddLine2.setText(AddLine2);
 
-        final EditText FEmail1 = (EditText) myDialog.findViewById(R.id.EMAIL1);
-        FEmail1.setText(Email1);
+        final EditText PEmail1 = (EditText) myDialog.findViewById(R.id.EMAIL1);
+        PEmail1.setText(Email1);
 
-        final EditText FEmail2 = (EditText) myDialog.findViewById(R.id.EMAIL2);
-        FEmail2.setText(Email2);
+        final EditText PEmail2 = (EditText) myDialog.findViewById(R.id.EMAIL2);
+        PEmail2.setText(Email2);
 
         Button buttoncancel = (Button) myDialog.findViewById(R.id.BtnCancel);
         buttoncancel.setOnClickListener(new View.OnClickListener() {
@@ -75,16 +75,16 @@ public class collegedetails {
             public void onClick(View v)
             {
 
-                tempstr=FCollege.getText().toString(); College=tempstr;
-                tempstr=FIndex.getText().toString();  Index=tempstr;
-                tempstr=FMonthyear.getText().toString(); MonthYear=tempstr;
-                tempstr=FStrim.getText().toString();  Strim=tempstr;
-                tempstr=FSubject.getText().toString();  Subject=tempstr;
-                tempstr=FInternal.getText().toString(); Internal=tempstr;
-                tempstr=FAddLine1.getText().toString(); AddLine1=tempstr;
-                tempstr=FAddLine2.getText().toString(); AddLine2=tempstr;
-                tempstr=FEmail1.getText().toString();  Email1=tempstr;
-                tempstr=FEmail2.getText().toString();  Email2=tempstr;
+                tempstr=PCollege.getText().toString(); College=tempstr;
+                tempstr=PIndex.getText().toString();  Index=tempstr;
+                tempstr=PMonthyear.getText().toString(); MonthYear=tempstr;
+                tempstr=PStrim.getText().toString();  Strim=tempstr;
+                tempstr=PSubject.getText().toString();  Subject=tempstr;
+                tempstr=PInternal.getText().toString(); Internal=tempstr;
+                tempstr=PAddLine1.getText().toString(); AddLine1=tempstr;
+                tempstr=PAddLine2.getText().toString(); AddLine2=tempstr;
+                tempstr=PEmail1.getText().toString();  Email1=tempstr;
+                tempstr=PEmail2.getText().toString();  Email2=tempstr;
 
                 SharedPreferences settings = context.getSharedPreferences("COLLEGE DETAILS", 0);
                 SharedPreferences.Editor editor = settings.edit();
@@ -103,7 +103,7 @@ public class collegedetails {
 
 
                 InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(FCollege.getWindowToken(),0);
+                imm.hideSoftInputFromWindow(PCollege.getWindowToken(),0);
 
                 myDialog.dismiss();
 

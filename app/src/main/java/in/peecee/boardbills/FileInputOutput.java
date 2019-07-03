@@ -20,8 +20,10 @@ import java.io.OutputStreamWriter;
 public class FileInputOutput extends AppCompatActivity
 {   private MainActivity MA;
     void SetMA(MainActivity MA){this.MA=MA;}
+    collegedetails CD = new collegedetails();
+    ExtExaminerDetails EED = new ExtExaminerDetails();
+    String fileName="BoardBills.rmb";
 
-    String fileName="bb.txt";
 
     private static final int REQUEST_ID_READ_PERMISSION = 100;
     private static final int REQUEST_ID_WRITE_PERMISSION = 200;
@@ -31,7 +33,7 @@ public class FileInputOutput extends AppCompatActivity
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
         //
         if (canWrite) {
-            this.writeFile();
+            this.WriteFile();
         }
     }
 
@@ -82,7 +84,7 @@ public class FileInputOutput extends AppCompatActivity
                 }
                 case REQUEST_ID_WRITE_PERMISSION: {
                     if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                        writeFile();
+                        WriteFile();
                     }
                 }
             }
@@ -91,30 +93,52 @@ public class FileInputOutput extends AppCompatActivity
         }
     }
 
-    private void writeFile() {
 
-        File extStore = Environment.getExternalStorageDirectory();
-        // ==> /storage/emulated/0/MyTT.txt
-        String path = extStore.getAbsolutePath() + "/" + fileName;
-        Log.i("ExternalStorageDemo", "Save to: " + path);
+    void WriteFile()
+    {
+        String FileNameWithPath=Environment.getExternalStorageDirectory().getPath();
+        FileNameWithPath+="/"+fileName;
 
-          String data = "test";
+
+        String txtData = "\n";
+        txtData +="Internal Examiner and College Details";                  txtData += '\n';
+        txtData += "College Name         : "; txtData += MA.CD.College;     txtData += '\n';
+        txtData += "Index Number         : "; txtData += MA.CD.Index;       txtData += '\n';
+        txtData += "Month and Year       : "; txtData += MA.CD.MonthYear;   txtData += '\n';
+        txtData += "Stream               : "; txtData += MA.CD.Strim;       txtData += '\n';
+        txtData += "Subject              : "; txtData += MA.CD.Subject;     txtData += '\n';
+        txtData += "Internal examiner    : "; txtData += MA.CD.Internal;    txtData += '\n';
+        txtData += "Address Line 1       : "; txtData += MA.CD.AddLine1;    txtData += '\n';
+        txtData += "Address Line 2       : "; txtData += MA.CD.AddLine2;    txtData += '\n';
+        txtData += "E-mail Address 1     : "; txtData += MA.CD.Email1;      txtData += '\n';
+        txtData += "E-mail Address 2     : "; txtData += MA.CD.Email2;      txtData += '\n';
+        txtData+="\n";
+        txtData+="=== Reserved Line ====\n";
+        txtData+="\n";
+        txtData +="External Examiner Details";                  txtData += '\n';
+        txtData += "External Examiner Name         : "; txtData += MA.EED.ExName;     txtData += '\n';
+
+
 
         try {
-            File myFile = new File(path);
+            File myFile = new File(FileNameWithPath);
             myFile.createNewFile();
             FileOutputStream fOut = new FileOutputStream(myFile);
             OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
-            myOutWriter.append(data);
+            myOutWriter.append(txtData);
             myOutWriter.close();
             fOut.close();
+            Msg.Show("Saved on SD card", MA);
 
-            Toast.makeText(getApplicationContext(), fileName + " saved", Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (Exception e)
+        {
+            Msg.Show(e.getMessage(),MA);
         }
-        MA.show("Saved");
     }
+
+
+
 
     private void readFile() {
 

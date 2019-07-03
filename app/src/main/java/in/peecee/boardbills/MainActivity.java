@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity
     collegedetails CD = new collegedetails();
     ExtExaminerDetails EED = new ExtExaminerDetails();
     FileInputOutput FIO=new FileInputOutput();
+    String ExName;
+    EditText name;
     /////////////Show Msg Functions /////////////////////////////////////
 
     public void show(int tempnum)
@@ -134,18 +136,10 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        switch(id)
-        {
-            case R.id.action_new  : show("We shall start with New Questionair"); return true;
-            case R.id.action_load :  FIO.askPermissionAndReadFile(); //show("File Loaded");
-                                      return true;
-            case R.id.action_save : FIO.askPermissionAndWriteFile(); ////show("File Saved"); SD.SaveToFile();
-                                     return true;
-        }
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_new)
+        {   Msg.Show("We have to start with new questionaire ",this);
 
-/*        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_new) {
-            show("We have to start with New Questionair");
             return true;
         }
 
@@ -154,12 +148,14 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
-        if (id == R.id.action_save) {
-            SD.SaveToFile();
-            show("File Saved");
+        if (id == R.id.action_save)
+        {  if(!StoragePermissionGranted())
+            Msg.Show("No Write Permission",this);
+          else
+            FIO.WriteFile();
             return true;
         }
-  */
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -236,7 +232,8 @@ public class MainActivity extends AppCompatActivity
 
     /////////////////// Storage Permission //////////////////////////////////////
 
-    public  boolean StoragePermissionGranted() {
+    public  boolean StoragePermissionGranted()
+    {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -261,7 +258,8 @@ public class MainActivity extends AppCompatActivity
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(grantResults[0]== PackageManager.PERMISSION_GRANTED)
         {
-            //    Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
+            Msg.Show("Permission Granted",this);
+            //  Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
             //resume tasks needing this permission
         }
     }

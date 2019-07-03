@@ -6,7 +6,7 @@ import android.widget.EditText;
 
 public class ExtExaminerDetails {
 
-    String  ExName = "";
+    String  ExName;
 
     String tempstr;
 
@@ -18,9 +18,12 @@ public class ExtExaminerDetails {
           myDialog.setContentView(R.layout.content_main);
           myDialog.setCancelable(true);
 
-            final EditText FExaminerNem = (EditText) myDialog.findViewById(R.id.NemExaminer);
-            FExaminerNem.setText(ExName);
+            final EditText EExaminerNem = (EditText) myDialog.findViewById(R.id.NemExaminer);
+            EExaminerNem.setText(ExName);
 
-         }
+
+
+         tempstr=EExaminerNem.getText().toString(); ExName=tempstr;
+    }
 
 }
