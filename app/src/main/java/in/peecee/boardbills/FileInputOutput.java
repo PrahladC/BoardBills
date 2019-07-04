@@ -21,7 +21,7 @@ public class FileInputOutput extends AppCompatActivity
 {   private MainActivity MA;
     void SetMA(MainActivity MA){this.MA=MA;}
     collegedetails CD = new collegedetails();
-    ExtExaminerDetails EED = new ExtExaminerDetails();
+//    ExtExaminerDetails EED = new ExtExaminerDetails();
     String fileName="BoardBills.rmb";
 
 
@@ -115,8 +115,8 @@ public class FileInputOutput extends AppCompatActivity
         txtData+="=== Reserved Line ====\n";
         txtData+="\n";
         txtData +="External Examiner and College Details";                  txtData += '\n';
-        txtData += "External Examiner Name  : "; txtData += MA.EED.ExName;  txtData += '\n';
-        txtData += "College Name  : ";           txtData += MA.EED.ColNem;  txtData += '\n';
+        txtData += "External Examiner Name  : "; txtData += MA.ExaminerName.getText().toString(); txtData += '\n';
+        txtData += "College Name  : ";           txtData += MA.colNem.getText().toString();  txtData += '\n';
 
 
         try {

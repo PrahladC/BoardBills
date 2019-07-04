@@ -33,9 +33,17 @@ public class MainActivity extends AppCompatActivity
 
     SaveDetails SD = new SaveDetails();
     collegedetails CD = new collegedetails();
-    ExtExaminerDetails EED = new ExtExaminerDetails();
+  //  ExtExaminerDetails EED = new ExtExaminerDetails();
     FileInputOutput FIO=new FileInputOutput();
     /////////////Show Msg Functions /////////////////////////////////////
+
+
+    ////////Test For PC
+    EditText ExaminerName;
+    EditText colNem;
+
+
+
 
     public void show(int tempnum)
     {
@@ -67,6 +75,10 @@ public class MainActivity extends AppCompatActivity
             }
         });   */
 
+    ExaminerName = (EditText) findViewById(R.id.NemExaminer);
+    colNem = (EditText) findViewById(R.id.ExaminerColNem);
+
+
         Button Exit = (Button) findViewById(R.id.button);
         Exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +104,9 @@ public class MainActivity extends AppCompatActivity
 
 
         CD.LoadCollegeDetails(this);
+
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
