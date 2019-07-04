@@ -31,13 +31,10 @@ import java.io.OutputStreamWriter;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String FileNameWithPath;
     SaveDetails SD = new SaveDetails();
     collegedetails CD = new collegedetails();
     ExtExaminerDetails EED = new ExtExaminerDetails();
     FileInputOutput FIO=new FileInputOutput();
-    String ExName;
-    EditText name;
     /////////////Show Msg Functions /////////////////////////////////////
 
     public void show(int tempnum)
@@ -94,9 +91,7 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-
         CD.LoadCollegeDetails(this);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -156,7 +151,6 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -198,37 +192,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void SaveToFile(){
-        String rootDir = Environment.getExternalStorageDirectory().getPath();
-        //String FileNameWithPath="/sdcard/";
-        FileNameWithPath=rootDir+"/"+"BoardBills.rmb";
-        SaveList(FileNameWithPath);
-        show("TEST");
-        if(!StoragePermissionGranted()) ;
-       // if(!StoragePermissionGranted()) finish();
-
-    }
-    private void SaveList(String fwithpath) {
-        String tmpStr;
-        String txtData = "Hello World Super World !!!";
-        EditText name = (EditText) findViewById(R.id.NemExaminer);
-
-        try {
-            File myFile = new File(fwithpath);
-            myFile.createNewFile();
-            FileOutputStream fOut = new FileOutputStream(myFile);
-            OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
-            myOutWriter.append(txtData);
-         //   myOutWriter.append(name.getText());
-            myOutWriter.close();
-            fOut.close();
-        } catch (Exception e) {
-            Toast.makeText(getBaseContext(), e.getMessage(),
-                    Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
 
     /////////////////// Storage Permission //////////////////////////////////////
 
@@ -263,7 +226,6 @@ public class MainActivity extends AppCompatActivity
             //resume tasks needing this permission
         }
     }
-
 
     void EditSettings()
     {

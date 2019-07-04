@@ -28,7 +28,7 @@ public class FileInputOutput extends AppCompatActivity
     private static final int REQUEST_ID_READ_PERMISSION = 100;
     private static final int REQUEST_ID_WRITE_PERMISSION = 200;
 
-    void askPermissionAndWriteFile() {
+/*    void askPermissionAndWriteFile() {
         boolean canWrite = this.askPermission(REQUEST_ID_WRITE_PERMISSION,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
         //
@@ -92,13 +92,12 @@ public class FileInputOutput extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Permission Cancelled!", Toast.LENGTH_SHORT).show();
         }
     }
-
+*/
 
     void WriteFile()
     {
         String FileNameWithPath=Environment.getExternalStorageDirectory().getPath();
         FileNameWithPath+="/"+fileName;
-
 
         String txtData = "\n";
         txtData +="Internal Examiner and College Details";                  txtData += '\n';
@@ -115,9 +114,9 @@ public class FileInputOutput extends AppCompatActivity
         txtData+="\n";
         txtData+="=== Reserved Line ====\n";
         txtData+="\n";
-        txtData +="External Examiner Details";                  txtData += '\n';
-        txtData += "External Examiner Name         : "; txtData += MA.EED.ExName;     txtData += '\n';
-
+        txtData +="External Examiner and College Details";                  txtData += '\n';
+        txtData += "External Examiner Name  : "; txtData += MA.EED.ExName;  txtData += '\n';
+        txtData += "College Name  : ";           txtData += MA.EED.ColNem;  txtData += '\n';
 
 
         try {
