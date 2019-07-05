@@ -31,18 +31,15 @@ import java.io.OutputStreamWriter;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    SaveDetails SD = new SaveDetails();
     collegedetails CD = new collegedetails();
   //  ExtExaminerDetails EED = new ExtExaminerDetails();
     FileInputOutput FIO=new FileInputOutput();
+    Msg msg =new Msg();
     /////////////Show Msg Functions /////////////////////////////////////
 
 
-    ////////Test For PC
-    EditText ExaminerName;
-    EditText colNem;
-
-
+    EditText EExaminerName, EcolNem, EIndexNo, EAdressLine1, EAdressLine2;
+    EditText EStartDet, EEndDet, ENoExam, EStudentNo, ERemperStudent;
 
 
     public void show(int tempnum)
@@ -75,9 +72,16 @@ public class MainActivity extends AppCompatActivity
             }
         });   */
 
-    ExaminerName = (EditText) findViewById(R.id.NemExaminer);
-    colNem = (EditText) findViewById(R.id.ExaminerColNem);
-
+    EExaminerName = (EditText) findViewById(R.id.NemExaminer);
+    EcolNem = (EditText) findViewById(R.id.ExaminerColNem);
+    EIndexNo = (EditText) findViewById(R.id.ExaminerColIndex);
+    EAdressLine1 = (EditText) findViewById(R.id.PostalAddressLine1);
+    EAdressLine2 = (EditText) findViewById(R.id.PostalAddressLine2);
+    EStartDet = (EditText) findViewById(R.id.ExamStartDet);
+    EEndDet = (EditText) findViewById(R.id.ExamEndDet);
+    ENoExam = (EditText) findViewById(R.id.NoExamDet);
+    EStudentNo = (EditText) findViewById(R.id.NumOfStudents);
+    ERemperStudent = (EditText) findViewById(R.id.RemPerStudent);
 
         Button Exit = (Button) findViewById(R.id.button);
         Exit.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +158,10 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.action_load) {
+//            if(!StoragePermissionGranted())
+//                Msg.Show("No Read Permission",this);
+//            else
+                FIO.LoadFile();
             show("File Loaded");
             return true;
         }

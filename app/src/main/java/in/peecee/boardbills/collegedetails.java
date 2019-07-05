@@ -13,11 +13,10 @@ public class collegedetails {
 
 //    boolean modified=false,NewNow=false,selectall=false,end=false,OpenNow=false;
 
-    String  College="S. I. W. S. College",
-            Index="J-31.04.005",MonthYear="Feb-2020", Internal = "Internal Examiner",
-            AddLine1 = "Address Line 1", AddLine2 = "Address Line 2",
-            Strim="Science", Subject="Mathematics",SubjectCode="40",
-            Email1="pc@gmail,com",Email2="mo@gmail.com";
+    String  College="S. I. W. S. College", Index="J-31.04.005",
+            MonthYear="Feb-2020", Strim="Science", Subject="Mathematics",
+            Internal = "Internal Examiner", AddLine1 = "Address Line 1",
+            AddLine2 = "Address Line 2", Email1="pc@gmail,com",Email2="mo@gmail.com";
 
     String tempstr;
 
